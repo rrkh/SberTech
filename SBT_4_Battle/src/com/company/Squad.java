@@ -19,30 +19,29 @@ public class Squad implements Cloneable {
     }
 
 
-    public Squad(String NameSquad)
-    {
-        this.NameSquad=NameSquad;
+    public Squad(String NameSquad) {
+        this.NameSquad = NameSquad;
     }
 
 
     public Warrior getRandomWarior() {
-        Random r=new Random();
+        Random r = new Random();
         return massWarior.get(r.nextInt(massWarior.size()));
     }
 
-    public  boolean hasAliveWariors ()
-    {
-        int j=0;
-        for (int i = 0; i <massWarior.size() ; i++) {
-            if(massWarior.get(i).isAlive()){j++;}
-            else
-                {
-                    System.out.println("Боец "+massWarior.get(i).toString()+"\n погиб!!!");
+    public boolean hasAliveWariors() {
+        int j = 0;
+        for (int i = 0; i < massWarior.size(); i++) {
+            if (massWarior.get(i).isAlive()) {
+                j++;
+            } else {
+                System.out.println("Боец " + massWarior.get(i).toString() + "\n погиб!!!");
                 massWarior.remove(i);
             }
         }
-        if(j!=0){return true;}
-        else return false;
+        if (j != 0) {
+            return true;
+        } else return false;
     }
 
     @Override
@@ -53,16 +52,16 @@ public class Squad implements Cloneable {
     @Override
     protected Object clone() throws CloneNotSupportedException {
         //скопировали объект
-        Squad cloneSq=(Squad)super.clone();
+        Squad cloneSq = (Squad) super.clone();
         //создали новый массив с бойцами
-        ArrayList<Warrior> br=new ArrayList<>();
+        ArrayList<Warrior> br = new ArrayList<>();
 
-        for (int i = 0; i <cloneSq.getMassWarior().size() ; i++) {
+        for (int i = 0; i < cloneSq.getMassWarior().size(); i++) {
             //получили ссылку у клона на бойца, и присвоили ее новому объекту
-            Warrior wr=cloneSq.getMassWarior().get(i);
+            Warrior wr = cloneSq.getMassWarior().get(i);
 
-            if( wr instanceof BarbarianJulia){
-                BarbarianJulia e=(BarbarianJulia)((BarbarianJulia) wr).clone();
+            if (wr instanceof BarbarianJulia) {
+                BarbarianJulia e = (BarbarianJulia) ((BarbarianJulia) wr).clone();
                 br.add(e);
             }
 

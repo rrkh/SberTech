@@ -9,29 +9,28 @@ import java.util.Date;
  */
 public class dateHelper {
 
-    Calendar cal=Calendar.getInstance();
+    Calendar cal = Calendar.getInstance();
     String dStart = cal.getTime().toString();
-    private int i=2;
-    private int LongTimeBattle=0;
+    private int i = 2;
+    private int LongTimeBattle = 0;
 
-    dateHelper()
-    {
-        cal.add(cal.YEAR,-1500);
+    dateHelper() {
+        cal.add(cal.YEAR, -1500);
 
     }
 
     public String getFormattedStartDate() {
-        return "Начало боя: "+dStart+" Раунд 1!";
+        return "Начало боя: " + dStart + " Раунд 1!";
     }
 
     public void skipTime() {
-        cal.add(cal.MINUTE,45);
-        LongTimeBattle+=45;
-        System.out.println("Раунд №"+i+"\n Начало в: "+cal.getTime());
+        cal.add(cal.MINUTE, 45);
+        LongTimeBattle += 45;
+        System.out.println("Раунд №" + i + "\n Начало в: " + cal.getTime());
         i++;
     }
-    public String getFormattedDiff()
-    {
+
+    public String getFormattedDiff() {
         return String.valueOf(LongTimeBattle);
     }
 }

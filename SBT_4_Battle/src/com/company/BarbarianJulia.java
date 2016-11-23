@@ -5,9 +5,9 @@ package com.company;
  */
 public class BarbarianJulia implements Warrior, Cloneable {
 
-    private  int Damage=5;
-    private  int Health=50;
-    private boolean life=true;
+    private int Damage = 5;
+    private int Health = 50;
+    private boolean life = true;
     private String squadName;
     private String name;
 
@@ -15,15 +15,14 @@ public class BarbarianJulia implements Warrior, Cloneable {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
 
         this.name = name;
     }
-    public BarbarianJulia(String name,String sqName)
-    {
-        this.squadName=sqName;
-        this.name=name;
+
+    public BarbarianJulia(String name, String sqName) {
+        this.squadName = sqName;
+        this.name = name;
     }
 
     @Override
@@ -33,8 +32,10 @@ public class BarbarianJulia implements Warrior, Cloneable {
 
     @Override
     public void takeDamage(int Damage) {
-        Health-=Damage;
-        if (Health<=0){life=false;}
+        Health -= Damage;
+        if (Health <= 0) {
+            life = false;
+        }
     }
 
     @Override
@@ -44,29 +45,26 @@ public class BarbarianJulia implements Warrior, Cloneable {
 
     @Override
     public void setSquadName(String Name) {
-            squadName=Name;
+        squadName = Name;
     }
 
-    public String getSquadName()
-    {
+    public String getSquadName() {
         return squadName;
     }
 
     @Override
     public String toString() {
-        return name+"\n Класс: ВарЮльвар \n Название отряда:"+squadName ;
+        return name + "\n Класс: ВарЮльвар \n Название отряда:" + squadName;
     }
 
     @Override
-    public Object clone()  {
+    public Object clone() {
         try {
-            BarbarianJulia e=(BarbarianJulia)super.clone();
-            e.name=e.getName();
-            e.squadName=e.getSquadName();
+            BarbarianJulia e = (BarbarianJulia) super.clone();
+            e.name = e.getName();
+            e.squadName = e.getSquadName();
             return e;
-        }
-        catch (CloneNotSupportedException ex)
-        {
+        } catch (CloneNotSupportedException ex) {
             throw new InternalError();
         }
     }
